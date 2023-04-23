@@ -1,5 +1,9 @@
 package nuricanozturk.dev.util.algorithms.sort;
 
-public class MergeSort
+final class MergeSort
 {
+    private MergeSort()
+    {
+        throw new UnsupportedOperationException("TODO: NOT IMPLEMENTED YET");
+    }
 }

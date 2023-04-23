@@ -1,3 +1,12 @@
+/*----------------------------------------------------------------
+	FILE		: BinarySearch.java
+	AUTHOR		: Nuri Can OZTURK
+	LAST UPDATE	: 23.04.2023
+	BinarySearch class is a classic search algorithm that time complexity is O(log n)
+	Copyleft (c) DSA-Lib
+	All Rights Free
+----------------------------------------------------------------*/
+
 package nuricanozturk.dev.util.algorithms.search;
 
 import java.util.Collection;

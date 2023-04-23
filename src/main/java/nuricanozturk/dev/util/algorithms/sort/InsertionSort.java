@@ -1,5 +1,9 @@
 package nuricanozturk.dev.util.algorithms.sort;
 
-public class InsertionSort
+final class InsertionSort
 {
+    private InsertionSort()
+    {
+        throw new UnsupportedOperationException("TODO: NOT IMPLEMENTED YET");
+    }
 }

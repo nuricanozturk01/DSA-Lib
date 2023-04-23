@@ -1,3 +1,12 @@
+/*----------------------------------------------------------------
+	FILE		: LinearSearch.java
+	AUTHOR		: Nuri Can OZTURK
+	LAST UPDATE	: 23.04.2023
+	LinearSearch class is a classic search algorithm that time complexity is O(n)
+	Copyleft (c) DSA-Lib
+	All Rights Free
+----------------------------------------------------------------*/
+
 package nuricanozturk.dev.util.algorithms.search;
 
 import java.util.Collection;

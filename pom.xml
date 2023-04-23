@@ -8,6 +8,39 @@
     <artifactId>data-structures-and-algorithms</artifactId>
     <version>1.0.0</version>
 
+    <developers>
+        <developer>
+            <id>1</id>
+            <name>Nuri Can OZTURK</name>
+            <roles>
+                <role>
+                    Software Developer
+                </role>
+            </roles>
+        </developer>
+
+        <developer>
+            <id>2</id>
+            <name>Dogan ARIK</name>
+            <roles>
+                <role>
+                    Software Developer
+                </role>
+            </roles>
+        </developer>
+
+
+        <developer>
+            <id>3</id>
+            <name>Ahmet KOÇ</name>
+            <roles>
+                <role>
+                    Software Developer
+                </role>
+            </roles>
+        </developer>
+    </developers>
+
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>

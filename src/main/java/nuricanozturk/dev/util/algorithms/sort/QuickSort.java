@@ -1,5 +1,10 @@
 package nuricanozturk.dev.util.algorithms.sort;
 
-public class QuickSort
+
+final class QuickSort
 {
+    private QuickSort()
+    {
+        throw new UnsupportedOperationException("TODO: NOT IMPLEMENTED YET");
+    }
 }

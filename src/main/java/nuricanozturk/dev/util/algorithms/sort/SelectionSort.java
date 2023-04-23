@@ -1,5 +1,10 @@
 package nuricanozturk.dev.util.algorithms.sort;
 
-public class SelectionSort
+
+final class SelectionSort
 {
+    private SelectionSort()
+    {
+        throw new UnsupportedOperationException("TODO: NOT IMPLEMENTED YET");
+    }
 }

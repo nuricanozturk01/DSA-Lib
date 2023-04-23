@@ -1,3 +1,11 @@
+/*----------------------------------------------------------------
+	FILE		: LinkedList.java
+	AUTHOR		: Nuri Can OZTURK
+	LAST UPDATE	: 23.04.2023
+	LinkedList class represent LinkedList linear data structure
+	Copyleft (c) DSA-Lib
+	All Rights Free
+----------------------------------------------------------------*/
 package nuricanozturk.dev.util.datastructures.linear;
 
 import java.util.Iterator;
@@ -7,11 +15,11 @@ import java.util.function.Predicate;
 
 public class LinkedList <T> implements Iterable<T>
 {
-    private Node<T> m_head;
+    private SinglyLinkedListNode<T> m_head;
 
     public LinkedList()
     {
-        m_head = new Node<>(null);
+        m_head = new SinglyLinkedListNode<>(null);
         m_head.setNext(null);
     }
 
@@ -23,14 +31,14 @@ public class LinkedList <T> implements Iterable<T>
 
     public void insertFirst(T data)
     {
-        Node<T> node = new Node<>(data);
+        SinglyLinkedListNode<T> node = new SinglyLinkedListNode<>(data);
 
         if (isEmpty())
             m_head = node;
 
         else
         {
-            Node<T> p = m_head;
+            SinglyLinkedListNode<T> p = m_head;
 
             m_head = node;
 
@@ -50,7 +58,7 @@ public class LinkedList <T> implements Iterable<T>
     }
     public void print(Consumer<T> consumer)
     {
-        for (Node<T> p = m_head; p.getNext() != null; p = p.getNext())
+        for (SinglyLinkedListNode<T> p = m_head; p.getNext() != null; p = p.getNext())
             consumer.accept(p.getData());
         System.out.println();
     }

@@ -1,5 +1,9 @@
 package nuricanozturk.dev.util.algorithms.sort;
 
-public class HeapSort
+final class HeapSort
 {
+    private HeapSort()
+    {
+        throw new UnsupportedOperationException("TODO: NOT IMPLEMENTED YET");
+    }
 }

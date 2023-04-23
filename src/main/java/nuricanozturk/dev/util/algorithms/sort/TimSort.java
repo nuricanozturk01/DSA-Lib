@@ -1,5 +1,9 @@
 package nuricanozturk.dev.util.algorithms.sort;
 
-public class TimSort
+final class TimSort
 {
+    private TimSort()
+    {
+        throw new UnsupportedOperationException("TODO: NOT IMPLEMENTED YET");
+    }
 }
