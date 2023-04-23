@@ -9,10 +9,13 @@
 package nuricanozturk.dev.util.datastructures.linear;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 import java.util.Spliterator;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
-
+import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
+// TODO: Not completed yet
 public class LinkedList <T> implements Iterable<T>
 {
     private SinglyLinkedListNode<T> m_head;
@@ -71,13 +74,36 @@ public class LinkedList <T> implements Iterable<T>
     @Override
     public Iterator<T> iterator()
     {
-        return null;
+        return new Iterator<>()
+        {
+            SinglyLinkedListNode<T> emptyNode = new SinglyLinkedListNode<>(m_head.getData());
+
+            { emptyNode.setNext(m_head); } //non static initializer
+            SinglyLinkedListNode<T> p = emptyNode;
+            @Override
+            public boolean hasNext()
+            {
+                return p.getNext().getNext() != null;
+            }
+
+            @Override
+            public T next()
+            {
+                if (!hasNext())
+                    throw new NoSuchElementException("");
+
+                p = p.getNext();
+
+                return p.getData();
+            }
+        };
     }
 
     @Override
     public void forEach(Consumer<? super T> action)
     {
-        Iterable.super.forEach(action);
+        for (T t : this)
+            action.accept(t);
     }
 
     @Override
@@ -93,9 +119,8 @@ public class LinkedList <T> implements Iterable<T>
         ll.insertFirst("nuri");
         ll.insertFirst("can");
         ll.insertFirst("ozturk");
-
-        ll.print(data -> System.out.printf("%s ", data));
-        ll.print();
+        ll.insertFirst("ali");
+        ll.insertFirst("veli");
     }
 }
 
