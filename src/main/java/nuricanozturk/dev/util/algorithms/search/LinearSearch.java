@@ -13,7 +13,7 @@ import java.util.Collection;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
-final class LinearSearch <T>
+final class LinearSearch
 {
     private LinearSearch(){}
 
