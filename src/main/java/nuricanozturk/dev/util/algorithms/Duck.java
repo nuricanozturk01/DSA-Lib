@@ -40,10 +40,10 @@ public class Duck implements Comparable<Duck>
 
     public static void main(String[] args)
     {
-        var d1 = new Duck(6,"can");
-        var d2 = new Duck(8,"beste");
-        var d3 = new Duck(1,"sevval");
-        var d4 = new Duck(3,"ayse");
+        var d1 = new Duck(6,"ali");
+        var d2 = new Duck(8,"veli");
+        var d3 = new Duck(1,"forty-nine");
+        var d4 = new Duck(3,"fifty");
 
         var duckList = new LinkedList<Duck>();
         duckList.add(d1);
@@ -60,7 +60,7 @@ public class Duck implements Comparable<Duck>
 
     private static boolean predicateCondition(Duck duck)
     {
-        return duck.name.equals("beste");
+        return duck.name.equals("veli");
     }
 
     public static void run()
