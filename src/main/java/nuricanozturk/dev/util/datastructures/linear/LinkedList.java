@@ -8,6 +8,7 @@
 ----------------------------------------------------------------*/
 package nuricanozturk.dev.util.datastructures.linear;
 
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.Spliterator;
@@ -17,21 +18,28 @@ import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
 // TODO: Not completed yet
-public class LinkedList <T> implements Iterable<T>
+public class LinkedList <T> implements Iterable<T>, Collection<T>
 {
     private SinglyLinkedListNode<T> m_head;
+    private int m_size;
 
     public LinkedList()
     {
         m_head = new SinglyLinkedListNode<>(null);
         m_head.setNext(null);
+        m_size = 0;
+    }
+
+    @Override
+    public int size()
+    {
+        return m_size;
     }
 
     public boolean isEmpty()
     {
         return  m_head == null;
     }
-
 
     public void insertFirst(T data)
     {
@@ -49,6 +57,8 @@ public class LinkedList <T> implements Iterable<T>
             m_head.setNext(p);
         }
 
+        m_size++;
+
     }
 
     public void insertLast(T data)
@@ -61,15 +71,7 @@ public class LinkedList <T> implements Iterable<T>
         return StreamSupport.stream(spliterator(), false);
     }
 
-    public Stream<T> parallelStream()
-    {
-        return StreamSupport.stream(spliterator(), true);
-    }
 
-    public <S extends Comparable<S>> void sort(Predicate<T> predicate)
-    {
-
-    }
     public void print(Consumer<T> consumer)
     {
         for (SinglyLinkedListNode<T> p = m_head; p.getNext() != null; p = p.getNext())
@@ -87,7 +89,7 @@ public class LinkedList <T> implements Iterable<T>
     {
         return new Iterator<>()
         {
-            SinglyLinkedListNode<T> emptyNode = new SinglyLinkedListNode<>(m_head.getData());
+            final SinglyLinkedListNode<T> emptyNode = new SinglyLinkedListNode<>(m_head.getData());
 
             { emptyNode.setNext(m_head); } //non static initializer
             SinglyLinkedListNode<T> p = emptyNode;
@@ -109,6 +111,65 @@ public class LinkedList <T> implements Iterable<T>
             }
         };
     }
+//--------------------------------------------------------------------------------------------------------------------
+
+    public <S extends Comparable<S>> void sort(Predicate<T> predicate)
+    {
+        throw new UnsupportedOperationException("NOT IMPLEMENTED YET...");
+    }
+    @Override
+    public Object[] toArray()
+    {
+        throw new UnsupportedOperationException("NOT IMPLEMENTED YET...");
+    }
+
+    @Override
+    public <T1> T1[] toArray(T1[] a)
+    {
+        throw new UnsupportedOperationException("NOT IMPLEMENTED YET...");
+    }
+
+    @Override
+    public boolean add(T t)
+    {
+        throw new UnsupportedOperationException("NOT IMPLEMENTED YET...");
+    }
+
+    @Override
+    public boolean remove(Object o)
+    {
+        throw new UnsupportedOperationException("NOT IMPLEMENTED YET...");
+    }
+
+    @Override
+    public boolean containsAll(Collection<?> c)
+    {
+        throw new UnsupportedOperationException("NOT IMPLEMENTED YET...");
+    }
+
+    @Override
+    public boolean addAll(Collection<? extends T> c)
+    {
+        throw new UnsupportedOperationException("NOT IMPLEMENTED YET...");
+    }
+
+    @Override
+    public boolean removeAll(Collection<?> c)
+    {
+        throw new UnsupportedOperationException("NOT IMPLEMENTED YET...");
+    }
+
+    @Override
+    public boolean retainAll(Collection<?> c)
+    {
+        throw new UnsupportedOperationException("NOT IMPLEMENTED YET...");
+    }
+
+    @Override
+    public void clear()
+    {
+        throw new UnsupportedOperationException("NOT IMPLEMENTED YET...");
+    }
 
     @Override
     public void forEach(Consumer<? super T> action)
@@ -118,10 +179,11 @@ public class LinkedList <T> implements Iterable<T>
     }
 
     @Override
-    public Spliterator<T> spliterator()
+    public boolean contains(Object o)
     {
-        return Iterable.super.spliterator();
+        throw new UnsupportedOperationException("NOT IMPLEMENTED YET...");
     }
+
 
     public static void main(String[] args)
     {
@@ -132,6 +194,8 @@ public class LinkedList <T> implements Iterable<T>
         ll.insertFirst("ozturk");
         ll.insertFirst("ali");
         ll.insertFirst("veli");
+
+        ll.stream().filter(s -> s.contains("a")).forEach(System.out::println);
     }
 }
 
