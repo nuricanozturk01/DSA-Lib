@@ -13,6 +13,9 @@ import java.util.NoSuchElementException;
 import java.util.Spliterator;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
+import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
+
 // TODO: Not completed yet
 public class LinkedList <T> implements Iterable<T>
 {
@@ -50,7 +53,17 @@ public class LinkedList <T> implements Iterable<T>
 
     public void insertLast(T data)
     {
+        throw new UnsupportedOperationException("NOT IMPLEMENTED YET...");
+    }
 
+    public Stream<T> stream()
+    {
+        return StreamSupport.stream(spliterator(), false);
+    }
+
+    public Stream<T> parallelStream()
+    {
+        return StreamSupport.stream(spliterator(), true);
     }
 
     public <S extends Comparable<S>> void sort(Predicate<T> predicate)
