@@ -5,11 +5,11 @@
 ## Including Classes
 
 ### Search Algorithms
-    - Linear Search
+    - Linear Search = +
     - Binary Search
 
 ### Sort Algorithms
-    - BubbleSort
+    - BubbleSort = + 
     - HeapSort
     - InsertionSort
     - MergeSort
