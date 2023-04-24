@@ -8,7 +8,7 @@
 ----------------------------------------------------------------*/
 package nuricanozturk.dev.util.datastructures.linear;
 
-class SinglyLinkedListNode<T>
+public class SinglyLinkedListNode<T>
 {
     private T data;
     private SinglyLinkedListNode<T> next;

@@ -7,9 +7,16 @@
 	All Rights Free
 ----------------------------------------------------------------*/
 
+/**
+ * This is a class for demonstrating JavaDoc usage.
+ *
+ * @author Nuri Can ÖZTÜRK
+ * @version 1.0
+ */
 package nuricanozturk.dev.util.algorithms.search;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
@@ -29,7 +36,6 @@ final class LinearSearch
     }
 
     /**
-     *
      * @param collection represent any collection
      * @param data searched key
      * @param consumer if key is present, you can do something with consumer
@@ -42,7 +48,6 @@ final class LinearSearch
     }
 
     /**
-     *
      * @param collection represent any collection
      * @param data searched key
      * @param notFoundReturnValue if key is not present, return the object within your decide.
@@ -54,7 +59,6 @@ final class LinearSearch
     }
 
     /**
-     *
      * @param collection represent any collection
      * @param predicate if you want to specific search, use it
      * @param msg if key is not present, throw RuntimeException and return with your message
@@ -66,7 +70,6 @@ final class LinearSearch
     }
 
     /**
-     *
      * @param collection represent any collection
      * @param predicate if you want to specific search, use it
      * @param consumer consumer if key is present, you can do something with consumer
@@ -79,7 +82,6 @@ final class LinearSearch
     }
 
     /**
-     *
      * @param collection represent any collection
      * @param predicate if you want to specific search, use it
      * @param notFoundReturnValue if key is not present, your message without any exception
@@ -91,7 +93,6 @@ final class LinearSearch
     }
 
     /**
-     *
      * @param collection represent any collection
      * @param predicate if you want to specific search, use it
      * @return if found, return the present value else, return the last value on collection

@@ -40,7 +40,6 @@ final class BubbleSort
     }
 
     /**
-     *
      * @param collection give any collection
      * @param predicate comparing option
      * @return collection on given first parameter

@@ -12,9 +12,9 @@ import java.util.Collection;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
-public final class SearchAlgorithms
+public final class SearchCollections
 {
-    private SearchAlgorithms() {}
+    private SearchCollections() {}
 
     public static <T> T linearSearch(Collection<T> collection, T data, String msg)
     {

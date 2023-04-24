@@ -16,8 +16,8 @@ import java.util.function.Consumer;
 // TODO: Not completed yet
 public class LinkedList <T> implements Iterable<T>, Collection<T>
 {
-    private SinglyLinkedListNode<T> m_head;
-    private int m_size;
+    private transient SinglyLinkedListNode<T> m_head;
+    private transient int m_size;
 
     public LinkedList()
     {
@@ -25,7 +25,10 @@ public class LinkedList <T> implements Iterable<T>, Collection<T>
         m_head.setNext(null);
         m_size = 0;
     }
-
+    public SinglyLinkedListNode<T> getHead()
+    {
+        return m_head;
+    }
     @Override
     public int size()
     {
