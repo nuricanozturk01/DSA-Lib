@@ -15,7 +15,7 @@ import java.util.function.Predicate;
 
 final class LinearSearch
 {
-    private LinearSearch(){}
+    private LinearSearch() {}
 
     /**
      * @param collection represent any collection

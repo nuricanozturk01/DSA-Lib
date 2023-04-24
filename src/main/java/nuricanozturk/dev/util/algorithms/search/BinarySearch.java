@@ -9,8 +9,8 @@
 
 package nuricanozturk.dev.util.algorithms.search;
 
-import java.util.Collection;
 
+import java.util.Collection;
 import java.util.ListIterator;
 
 public final class BinarySearch
