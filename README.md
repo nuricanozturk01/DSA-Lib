@@ -38,4 +38,4 @@
 #### Authors:
     -> Ahmet KOÇ
     -> Doğan ARIK
-    =- Nuri Can ÖZTÜRK
+    -> Nuri Can ÖZTÜRK
