@@ -111,6 +111,12 @@ public class LinkedList <T> implements Iterable<T>, Collection<T>
             }
         };
     }
+    @Override
+    public void forEach(Consumer<? super T> action)
+    {
+        for (T t : this)
+            action.accept(t);
+    }
 //--------------------------------------------------------------------------------------------------------------------
 
     public <S extends Comparable<S>> void sort(Predicate<T> predicate)
@@ -171,12 +177,7 @@ public class LinkedList <T> implements Iterable<T>, Collection<T>
         throw new UnsupportedOperationException("NOT IMPLEMENTED YET...");
     }
 
-    @Override
-    public void forEach(Consumer<? super T> action)
-    {
-        for (T t : this)
-            action.accept(t);
-    }
+
 
     @Override
     public boolean contains(Object o)
