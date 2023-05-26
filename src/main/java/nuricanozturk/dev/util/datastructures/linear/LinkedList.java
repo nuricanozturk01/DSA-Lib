@@ -8,13 +8,11 @@
 ----------------------------------------------------------------*/
 package nuricanozturk.dev.util.datastructures.linear;
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.NoSuchElementException;
+import java.util.*;
 import java.util.function.Consumer;
 
 // TODO: Not completed yet
-public class LinkedList <T> implements Iterable<T>, Collection<T>
+public class LinkedList <T> implements ILinkedList<T>
 {
     private transient SinglyLinkedListNode<T> m_head;
     private transient int m_size;
@@ -40,6 +38,12 @@ public class LinkedList <T> implements Iterable<T>, Collection<T>
         return  m_head == null;
     }
 
+    @Override
+    public LinkedList<T> clone(LinkedList<T> linkedList)
+    {
+        return null;
+    }
+
     public void insertFirst(T data)
     {
         SinglyLinkedListNode<T> node = new SinglyLinkedListNode<>(data);
@@ -59,6 +63,18 @@ public class LinkedList <T> implements Iterable<T>, Collection<T>
     public void insertLast(T data)
     {
         throw new UnsupportedOperationException("NOT IMPLEMENTED YET...");
+    }
+
+    @Override
+    public void insert(SinglyLinkedListNode<T> node, T searchedData)
+    {
+
+    }
+
+    @Override
+    public Optional<T> removeElement(T element)
+    {
+        return Optional.empty();
     }
 
     @Override
@@ -158,22 +174,36 @@ public class LinkedList <T> implements Iterable<T>, Collection<T>
 
 
 
-
-
-
     public static void main(String[] args)
     {
         var ll = new LinkedList<String>();
 
-        ll.insertFirst("nuri");
-        ll.insertFirst("can");
-        ll.insertFirst("ozturk");
-        ll.insertFirst("ali");
-        ll.insertFirst("veli");
+        ll.insertLast("nuri");
+        ll.insertLast("can");
+        ll.insertLast("ozturk");
+        ll.insertLast("ali");
+        ll.insertLast("veli");
 
         System.out.println(ll.size());
 
         ll.stream().filter(s -> s.contains("a")).forEach(System.out::println);
+    }
+
+    public Optional<T> removeFirst()
+    {
+        return null;
+    }
+
+    @Override
+    public Optional<T> removeLast()
+    {
+        return Optional.empty();
+    }
+
+    @Override
+    public Optional<T> peek()
+    {
+        return Optional.empty();
     }
 }
 
