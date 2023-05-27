@@ -32,4 +32,16 @@ interface IStack<T>
      * @param item your item
      */
     void push(T item);
+
+    /**
+     *
+     * @return true if full else return false
+     */
+    boolean isFull();
+
+    /**
+     *
+     * @return true if empty else return false
+     */
+    boolean isEmpty();
 }

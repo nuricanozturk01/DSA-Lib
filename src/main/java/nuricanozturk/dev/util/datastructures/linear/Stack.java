@@ -39,4 +39,14 @@ public class Stack<T> implements IStack<T>
     {
         m_linkedList.insertFirst(item);
     }
+
+    @Override
+    public boolean isFull() {
+        return false;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return m_linkedList.isEmpty();
+    }
 }
