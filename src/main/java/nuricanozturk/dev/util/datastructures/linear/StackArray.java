@@ -1,5 +1,8 @@
 package nuricanozturk.dev.util.datastructures.linear;
 
+import nuricanozturk.dev.util.exception.StackFullException;
+
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import static java.util.Optional.empty;
@@ -23,17 +26,6 @@ public class StackArray<T> implements IStack<T> {
         m_stackArr = (T[]) new Object[capacity];
     }
 
-    public static void main(String[] args) {
-        var stack = new StackArray<String>();
-        stack.push("Nuri");
-        stack.push("Can");
-        stack.push("ozturk");
-
-        while (!stack.isEmpty())
-            System.out.println(stack.pop());
-
-    }
-
     @Override
     public Optional<T> peek() {
         return isEmpty() ? empty() : of(m_stackArr[m_finger]);
@@ -45,15 +37,16 @@ public class StackArray<T> implements IStack<T> {
 
     @Override
     public Optional<T> pop() {
-        if (!isEmpty()) {
-            var item = m_stackArr[m_finger];
-            m_stackArr[m_finger--] = null;
-            m_size--;
 
-            return of(item);
-        }
+        if (isEmpty())
+            throw new NoSuchElementException("Stack has not any element...");
 
-        return empty();
+        var item = m_stackArr[m_finger];
+
+        m_stackArr[m_finger--] = null;
+        m_size--;
+
+        return of(item);
     }
 
     @Override
@@ -68,9 +61,10 @@ public class StackArray<T> implements IStack<T> {
 
     @Override
     public void push(T item) {
-        if (!isFull()) {
-            m_stackArr[++m_finger] = item;
-            m_size++;
-        }
+        if (isFull())
+            throw new StackFullException("Stack is full");
+
+        m_stackArr[++m_finger] = item;
+        m_size++;
     }
 }

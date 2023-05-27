@@ -49,4 +49,8 @@ public class Stack<T> implements IStack<T>
     public boolean isEmpty() {
         return m_linkedList.isEmpty();
     }
+
+    public int getSize() {
+        return m_linkedList.size();
+    }
 }
