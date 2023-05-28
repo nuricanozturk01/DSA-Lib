@@ -1,12 +1,21 @@
+/**
+ * FILE		    : DoublyLinkedList.java
+ * AUTHOR		: Nuri Can OZTURK
+ * LAST UPDATE	: 28.05.2023
+ * DoublyLinkedList class represent doubly linked list.
+ * Copyleft (c) DSA-Lib
+ * All Rights Free
+ */
 package nuricanozturk.dev.util.datastructures.linear.linkedlist;
 
 import nuricanozturk.dev.util.datastructures.linear.interfaces.IDoublyLinkedList;
-import nuricanozturk.dev.util.datastructures.linear.linkedlist.DoublyLinkedListNode;
-import nuricanozturk.dev.util.datastructures.linear.linkedlist.LinkedList;
 
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Optional;
+
+import static java.util.Optional.empty;
+import static java.util.Optional.of;
 
 public class DoublyLinkedList<T> implements IDoublyLinkedList<T> {
     private DoublyLinkedListNode<T> m_head;
@@ -21,7 +30,7 @@ public class DoublyLinkedList<T> implements IDoublyLinkedList<T> {
 
     @Override
     public void insertFirst(T item) {
-        DoublyLinkedListNode<T> newNode = new DoublyLinkedListNode<>(item);
+        var newNode = new DoublyLinkedListNode<T>(item);
         if (isEmpty()) {
             m_head = newNode;
             m_tail = newNode;
@@ -35,7 +44,7 @@ public class DoublyLinkedList<T> implements IDoublyLinkedList<T> {
 
     @Override
     public void insertLast(T item) {
-        DoublyLinkedListNode<T> newNode = new DoublyLinkedListNode<>(item);
+        var newNode = new DoublyLinkedListNode<T>(item);
         if (isEmpty()) {
             m_head = newNode;
             m_tail = newNode;
@@ -49,11 +58,11 @@ public class DoublyLinkedList<T> implements IDoublyLinkedList<T> {
 
     @Override
     public void insert(DoublyLinkedListNode<T> node, T searchedData) {
-        DoublyLinkedListNode<T> newNode = new DoublyLinkedListNode<>(searchedData);
+        var newNode = new DoublyLinkedListNode<T>(searchedData);
         if (node == null) {
             insertFirst(searchedData);
         } else {
-            DoublyLinkedListNode<T> currentNode = m_head;
+            var currentNode = m_head;
             while (currentNode != null && currentNode != node) {
                 currentNode = currentNode.getNext();
             }
@@ -75,7 +84,7 @@ public class DoublyLinkedList<T> implements IDoublyLinkedList<T> {
 
     @Override
     public Optional<T> removeElement(T element) {
-        DoublyLinkedListNode<T> currentNode = m_head;
+        var currentNode = m_head;
         while (currentNode != null && !currentNode.getData().equals(element)) {
             currentNode = currentNode.getNext();
         }
@@ -94,17 +103,17 @@ public class DoublyLinkedList<T> implements IDoublyLinkedList<T> {
                 }
             }
             m_size--;
-            return Optional.of(currentNode.getData());
+            return of(currentNode.getData());
         }
-        return Optional.empty();
+        return empty();
     }
 
     @Override
     public Optional<T> removeFirst() {
         if (isEmpty()) {
-            return Optional.empty();
+            return empty();
         }
-        DoublyLinkedListNode<T> removedNode = m_head;
+        var removedNode = m_head;
         m_head = m_head.getNext();
         if (m_head != null) {
             m_head.setPrev(null);
@@ -112,15 +121,15 @@ public class DoublyLinkedList<T> implements IDoublyLinkedList<T> {
             m_tail = null;
         }
         m_size--;
-        return Optional.of(removedNode.getData());
+        return of(removedNode.getData());
     }
 
     @Override
     public Optional<T> removeLast() {
         if (isEmpty()) {
-            return Optional.empty();
+            return empty();
         }
-        DoublyLinkedListNode<T> removedNode = m_tail;
+        var removedNode = m_tail;
         m_tail = m_tail.getPrev();
         if (m_tail != null) {
             m_tail.setNext(null);
@@ -128,13 +137,13 @@ public class DoublyLinkedList<T> implements IDoublyLinkedList<T> {
             m_head = null;
         }
         m_size--;
-        return Optional.of(removedNode.getData());
+        return of(removedNode.getData());
     }
 
 
     @Override
     public Optional<T> peek() {
-        return Optional.empty();
+        return empty();
     }
 
     @Override
