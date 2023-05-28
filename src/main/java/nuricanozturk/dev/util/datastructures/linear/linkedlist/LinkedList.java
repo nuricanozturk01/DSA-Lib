@@ -29,35 +29,6 @@ public class LinkedList<T> implements ILinkedList<T> {
         m_size = 0;
     }
 
-    public static void main(String[] args) {
-        var ll = new LinkedList<String>();
-
-        ll.insertLast("nuri");
-        ll.insertLast("can");
-        ll.insertLast("ozturk");
-        ll.insertLast("ali");
-        ll.insertLast("veli");
-        ll.removeFirst();
-        ll.removeFirst();
-        ll.removeFirst();
-        ll.removeFirst();
-        ll.removeFirst();
-        ll.forEach(System.out::println);
-
-       /* var node = ll.getHead();
-
-        while (!ll.isEmpty() && node != null)
-        {
-            System.out.println(node.getData());
-            node = node.getNext();
-        }*/
-
-
-        System.out.println("\n");
-
-
-        ll.forEach(System.out::println);
-    }
 
     public SinglyLinkedListNode<T> getHead() {
         return m_head;
@@ -107,10 +78,7 @@ public class LinkedList<T> implements ILinkedList<T> {
     }
 
 
-    @Override
-    public void insert(SinglyLinkedListNode<T> node, T searchedData) {
 
-    }
 
     @Override
     public Optional<T> removeElement(T element) {
@@ -171,6 +139,10 @@ public class LinkedList<T> implements ILinkedList<T> {
     }
 //--------------------------------------------------------------------------------------------------------------------
 
+    @Override
+    public void insert(SinglyLinkedListNode<T> node, T searchedData) {
+        throw new UnsupportedOperationException("TODO");
+    }
     @Override
     public boolean contains(Object o) {
         return stream().anyMatch(l -> l.equals(o));
@@ -238,7 +210,7 @@ public class LinkedList<T> implements ILinkedList<T> {
 
     @Override
     public Optional<T> peek() {
-        return empty();
+        return of(m_head.getData());
     }
 }
 

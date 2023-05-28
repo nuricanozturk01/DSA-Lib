@@ -14,11 +14,11 @@ import java.util.Optional;
 
 import static java.util.Optional.empty;
 
-public class Queue<T> implements IQueue<T>
+public class LinkedListQueue<T> implements IQueue<T>
 {
     private final LinkedList<T> m_linkedList;
 
-    public Queue()
+    public LinkedListQueue()
     {
         m_linkedList = new LinkedList<>();
     }
@@ -43,11 +43,11 @@ public class Queue<T> implements IQueue<T>
 
     @Override
     public boolean isFull() {
-        return false;
+        throw new UnsupportedOperationException("Unsupported Operation!");
     }
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return m_linkedList.isEmpty();
     }
 }
