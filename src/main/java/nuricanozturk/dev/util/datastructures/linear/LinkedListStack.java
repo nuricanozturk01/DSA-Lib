@@ -13,36 +13,31 @@ import java.util.Optional;
 import static java.util.Optional.empty;
 import static java.util.Optional.of;
 
-public class Stack<T> implements IStack<T>
-{
+public class LinkedListStack<T> implements IStack<T> {
     private final LinkedList<T> m_linkedList;
 
-    public Stack()
-    {
+    public LinkedListStack() {
         m_linkedList = new LinkedList<>();
     }
 
     @Override
-    public Optional<T> peek()
-    {
+    public Optional<T> peek() {
         return !m_linkedList.isEmpty() ? of(m_linkedList.getHead().getData()) : empty();
     }
 
     @Override
-    public Optional<T> pop()
-    {
+    public Optional<T> pop() {
         return !m_linkedList.isEmpty() ? m_linkedList.removeFirst() : empty();
     }
 
     @Override
-    public void push(T item)
-    {
+    public void push(T item) {
         m_linkedList.insertFirst(item);
     }
 
     @Override
     public boolean isFull() {
-        return false;
+        throw new UnsupportedOperationException("Unsupported Operation...");
     }
 
     @Override

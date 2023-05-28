@@ -10,8 +10,7 @@ package nuricanozturk.dev.util.datastructures.linear;
 
 import java.util.Optional;
 
-interface IStack<T>
-{
+interface IStack<T> {
     /**
      * Get first element from Linked List. İf empty, return Optional.Empty().
      *
@@ -34,13 +33,11 @@ interface IStack<T>
     void push(T item);
 
     /**
-     *
      * @return true if full else return false
      */
     boolean isFull();
 
     /**
-     *
      * @return true if empty else return false
      */
     boolean isEmpty();

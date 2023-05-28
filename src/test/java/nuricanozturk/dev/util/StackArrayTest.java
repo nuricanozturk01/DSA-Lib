@@ -1,3 +1,11 @@
+/**
+ * FILE		    : StackArrayTest.java
+ * AUTHOR		: Nuri Can OZTURK
+ * LAST UPDATE	: 28.05.2023
+ * StackArrayTest class is test class for StackArray class.
+ * Copyleft (c) DSA-Lib
+ * All Rights Free
+ */
 package nuricanozturk.dev.util;
 
 import nuricanozturk.dev.util.datastructures.linear.StackArray;
@@ -29,10 +37,8 @@ public class StackArrayTest {
     @Test
     public void testStackItems() {
         int index = stringArr.length - 1;
-        while (!stack.isEmpty()) {
-            String item = stack.pop().orElse(null);
-            Assertions.assertEquals(stringArr[index--], item);
-        }
+        while (!stack.isEmpty())
+            Assertions.assertEquals(stringArr[index--], stack.pop().orElse(null));
     }
 
     @DisplayName("Pop all item and check size of stack")

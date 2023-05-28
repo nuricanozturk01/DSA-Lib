@@ -1,7 +1,14 @@
+/**
+ * FILE		    : LinkedListStackTest.java
+ * AUTHOR		: Nuri Can OZTURK
+ * LAST UPDATE	: 28.05.2023
+ * LinkedListStackTest class is test class for LinkedListStack class.
+ * Copyleft (c) DSA-Lib
+ * All Rights Free
+ */
 package nuricanozturk.dev.util;
 
-import nuricanozturk.dev.util.datastructures.linear.Stack;
-import nuricanozturk.dev.util.datastructures.linear.StackArray;
+import nuricanozturk.dev.util.datastructures.linear.LinkedListStack;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -9,14 +16,14 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-public class StackLinkedListTest {
+public class LinkedListStackTest {
 
     private static final String[] stringArr = new String[]{"Nuri", "Can", "ozturk", "stack", "array"};
-    private Stack<String> stack;
+    private LinkedListStack<String> stack;
 
     @BeforeEach
     public void setup() {
-        stack = new Stack<>();
+        stack = new LinkedListStack<>();
         Arrays.stream(stringArr).forEach(stack::push);
     }
 
