@@ -6,7 +6,7 @@
 	Copyleft (c) DSA-Lib
 	All Rights Free
 ----------------------------------------------------------------*/
-package nuricanozturk.dev.util.datastructures.linear;
+package nuricanozturk.dev.util.datastructures.linear.linkedlist;
 
 import nuricanozturk.dev.util.datastructures.linear.interfaces.ILinkedList;
 

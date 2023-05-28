@@ -1,3 +1,11 @@
+/**
+ * FILE		    : QueueArray.java
+ * AUTHOR		: Nuri Can OZTURK
+ * LAST UPDATE	: 28.05.2023
+ * QueueArray class represent the queue
+ * Copyleft (c) DSA-Lib
+ * All Rights Free
+ */
 package nuricanozturk.dev.util.datastructures.linear.array;
 
 import nuricanozturk.dev.util.datastructures.linear.interfaces.IQueue;
@@ -29,7 +37,7 @@ public class QueueArray<T> implements IQueue<T> {
         this(10);
     }
 
-    private int getSize() {
+    public int getSize() {
         return m_size;
     }
 

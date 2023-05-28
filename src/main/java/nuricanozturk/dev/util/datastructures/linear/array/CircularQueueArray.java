@@ -1,3 +1,11 @@
+/**
+ * FILE		    : CircularQueueArray.java
+ * AUTHOR		: Nuri Can OZTURK
+ * LAST UPDATE	: 28.05.2023
+ * CircularQueueArray class represent the circular queue
+ * Copyleft (c) DSA-Lib
+ * All Rights Free
+ */
 package nuricanozturk.dev.util.datastructures.linear.array;
 
 import nuricanozturk.dev.util.datastructures.linear.interfaces.IQueue;
@@ -28,7 +36,7 @@ public class CircularQueueArray<T> implements IQueue<T> {
         this(10);
     }
 
-    private int getSize() {
+    public int getSize() {
         return m_size;
     }
 

@@ -8,11 +8,7 @@
 ----------------------------------------------------------------*/
 package nuricanozturk.dev.util.datastructures;
 
-import nuricanozturk.dev.util.datastructures.linear.LinkedList;
-import nuricanozturk.dev.util.datastructures.linear.SinglyLinkedListNode;
-
-import java.util.Collection;
-import java.util.Collections;
+import nuricanozturk.dev.util.datastructures.linear.linkedlist.LinkedList;
 
 public final class DataStructureCollections
 {

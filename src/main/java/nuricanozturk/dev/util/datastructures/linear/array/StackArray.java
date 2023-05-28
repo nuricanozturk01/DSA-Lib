@@ -1,3 +1,11 @@
+/**
+ * FILE		    : StackArray.java
+ * AUTHOR		: Nuri Can OZTURK
+ * LAST UPDATE	: 28.05.2023
+ * StackArray class represent the stack
+ * Copyleft (c) DSA-Lib
+ * All Rights Free
+ */
 package nuricanozturk.dev.util.datastructures.linear.array;
 
 import nuricanozturk.dev.util.datastructures.linear.interfaces.IStack;

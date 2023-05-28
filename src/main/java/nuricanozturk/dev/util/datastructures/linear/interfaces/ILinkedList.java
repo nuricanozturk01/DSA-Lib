@@ -8,8 +8,8 @@
  */
 package nuricanozturk.dev.util.datastructures.linear.interfaces;
 
-import nuricanozturk.dev.util.datastructures.linear.LinkedList;
-import nuricanozturk.dev.util.datastructures.linear.SinglyLinkedListNode;
+import nuricanozturk.dev.util.datastructures.linear.linkedlist.LinkedList;
+import nuricanozturk.dev.util.datastructures.linear.linkedlist.SinglyLinkedListNode;
 
 import java.util.Collection;
 import java.util.Optional;
