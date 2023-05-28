@@ -16,7 +16,6 @@ import nuricanozturk.dev.util.datastructures.linear.linkedlist.*;
 public final class DataStructureCollections {
     private DataStructureCollections() {
     }
-
     public static <T> LinkedList<T> createEmptySinglyLinkedList() {
         return new LinkedList<T>();
     }
@@ -63,5 +62,10 @@ public final class DataStructureCollections {
 
     public static <T> LinkedListCircularQueue<T> createEmptyCircularQueueLinkedList(int capacity) {
         return new LinkedListCircularQueue<T>(capacity);
+    }
+
+    public static <T> LinkedList<T> createEmptyLinkedList()
+    {
+        return new LinkedList<T>();
     }
 }

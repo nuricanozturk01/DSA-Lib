@@ -8,16 +8,15 @@
 ----------------------------------------------------------------*/
 package nuricanozturk.dev.util.datastructures.linear.linkedlist;
 
+import nuricanozturk.dev.util.collection.DataStructureCollections;
 import nuricanozturk.dev.util.datastructures.linear.interfaces.ILinkedList;
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.NoSuchElementException;
-import java.util.Optional;
+import java.util.*;
 import java.util.function.Consumer;
 
 import static java.util.Optional.empty;
 import static java.util.Optional.of;
+import static nuricanozturk.dev.util.collection.DataStructureCollections.createEmptyLinkedList;
 
 // TODO: Not completed yet
 public class LinkedList<T> implements ILinkedList<T> {
@@ -131,26 +130,59 @@ public class LinkedList<T> implements ILinkedList<T> {
     }
 
     @Override
+    public void insert(SinglyLinkedListNode<T> node, T searchedData) {
+        if (isEmpty()) {
+            m_head = node;
+            m_size++;
+            return;
+        }
+
+        var currentNode = m_head;
+        SinglyLinkedListNode<T> previousNode = null;
+
+        while (currentNode != null && !currentNode.getData().equals(searchedData)) {
+            previousNode = currentNode;
+            currentNode = currentNode.getNext();
+        }
+
+        if (currentNode != null) {
+            node.setNext(currentNode.getNext());
+            currentNode.setNext(node);
+            m_size++;
+        } else if (previousNode != null) {
+            previousNode.setNext(node);
+            m_size++;
+        }
+    }
+
+    @Override
+    @SuppressWarnings("all")
+    public boolean remove(Object object) {
+        var obj = (T) object;
+
+        var deletedElement = removeElement(obj);
+
+        return deletedElement.isPresent();
+    }
+    @Override
     public void forEach(Consumer<? super T> action) {
         for (T t : this)
             action.accept(t);
     }
-//--------------------------------------------------------------------------------------------------------------------
-
-    @Override
-    public void insert(SinglyLinkedListNode<T> node, T searchedData) {
-        throw new UnsupportedOperationException("TODO");
-    }
-
     @Override
     public boolean contains(Object o) {
         return stream().anyMatch(l -> l.equals(o));
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public Object[] toArray() {
-        throw new UnsupportedOperationException("NOT SUPPORTED");
+        return (T[]) stream().toArray(Object[]::new);
     }
+//--------------------------------------------------------------------------------------------------------------------
+
+
+
 
     @Override
     public <T1> T1[] toArray(T1[] a) {
@@ -162,10 +194,6 @@ public class LinkedList<T> implements ILinkedList<T> {
         throw new UnsupportedOperationException("NOT SUPPORTED");
     }
 
-    @Override
-    public boolean remove(Object o) {
-        throw new UnsupportedOperationException("NOT SUPPORTED");
-    }
 
     @Override
     public boolean containsAll(Collection<?> c) {
@@ -204,11 +232,50 @@ public class LinkedList<T> implements ILinkedList<T> {
 
     @Override
     public Optional<T> removeLast() {
-        return empty();
+        if (isEmpty()) {
+            return Optional.empty();
+        }
+
+        if (m_head.getNext() == null) {
+            var deletedItem = m_head.getData();
+            m_head = null;
+            m_size--;
+            return of(deletedItem);
+        }
+
+        var currentNode = m_head;
+
+        while (currentNode.getNext().getNext() != null)
+            currentNode = currentNode.getNext();
+
+        var deletedItem = currentNode.getNext().getData();
+
+        currentNode.setNext(null);
+        m_size--;
+
+        return of(deletedItem);
     }
+
 
     @Override
     public Optional<T> peek() {
         return of(m_head.getData());
+    }
+
+    public static void main(String[] args)
+    {
+        var ll = DataStructureCollections.<String>createEmptyLinkedList();
+        ll.insertLast("ali");
+        ll.insertLast("veli");
+        ll.insertLast("can");
+        ll.insertLast("nuri");
+
+
+        ll.removeLast();
+        ll.removeLast();
+        ll.removeLast();
+
+        while (!ll.isEmpty())
+            System.out.println(ll.removeFirst());
     }
 }
