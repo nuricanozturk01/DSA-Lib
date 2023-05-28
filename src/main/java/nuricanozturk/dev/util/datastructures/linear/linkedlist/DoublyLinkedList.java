@@ -1,4 +1,4 @@
-package nuricanozturk.dev.util.datastructures.linear;
+package nuricanozturk.dev.util.datastructures.linear.linkedlist;
 
 import nuricanozturk.dev.util.datastructures.linear.interfaces.IDoublyLinkedList;
 import nuricanozturk.dev.util.datastructures.linear.linkedlist.DoublyLinkedListNode;
