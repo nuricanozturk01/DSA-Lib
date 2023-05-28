@@ -8,13 +8,14 @@
  */
 package nuricanozturk.dev.util.datastructures.linear.interfaces;
 
+import nuricanozturk.dev.util.datastructures.linear.linkedlist.DoublyLinkedListNode;
 import nuricanozturk.dev.util.datastructures.linear.linkedlist.LinkedList;
 import nuricanozturk.dev.util.datastructures.linear.linkedlist.SinglyLinkedListNode;
 
 import java.util.Collection;
 import java.util.Optional;
 
-public interface ILinkedList<T> extends Cloneable, Iterable<T>, Collection<T>
+public interface IDoublyLinkedList<T> extends Cloneable, Iterable<T>, Collection<T>
 {
     /**
      * insert your item to head.
@@ -36,7 +37,7 @@ public interface ILinkedList<T> extends Cloneable, Iterable<T>, Collection<T>
      * @param node         your node
      * @param searchedData searching data
      */
-    void insert(SinglyLinkedListNode<T> node, T searchedData);
+    void insert(DoublyLinkedListNode<T> node, T searchedData);
 
     /**
      * Remove element from LinkedList. If it has same element one more than, remove first.

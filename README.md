@@ -18,11 +18,12 @@
     - TimSort = NOT COMPLETED YET
 
 ### Linear Data Structures
-    - SinglyLinkedList = NOT COMPLETED YET
-    - DoublyLinkedList = NOT COMPLETED YET
+    - SinglyLinkedList = +                [Test Class] = +
+    - DoublyLinkedList = +                [Test Class] = +
     - LinkedListQueue = +                 [Test Class] = +
     - QueueArray = +                      [Test Class] = +
     - CircularQueueArray = +              [Test Class] = +
+    - LinkedListCircularQueue = +         [Test Class] = +
     - LinkedListStack = +                 [Test Class] = +
     - StackArray = +                      [Test Class] = +
     - SpaghettiStack = NOT COMPLETED YET

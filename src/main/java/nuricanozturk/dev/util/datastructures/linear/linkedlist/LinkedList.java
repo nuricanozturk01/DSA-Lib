@@ -24,6 +24,7 @@ public class LinkedList<T> implements ILinkedList<T> {
     private SinglyLinkedListNode<T> m_head;
     private int m_size;
 
+
     public LinkedList() {
         m_head = null;
         m_size = 0;
@@ -76,9 +77,6 @@ public class LinkedList<T> implements ILinkedList<T> {
         }
         m_size++;
     }
-
-
-
 
     @Override
     public Optional<T> removeElement(T element) {
@@ -143,6 +141,7 @@ public class LinkedList<T> implements ILinkedList<T> {
     public void insert(SinglyLinkedListNode<T> node, T searchedData) {
         throw new UnsupportedOperationException("TODO");
     }
+
     @Override
     public boolean contains(Object o) {
         return stream().anyMatch(l -> l.equals(o));
@@ -213,5 +212,3 @@ public class LinkedList<T> implements ILinkedList<T> {
         return of(m_head.getData());
     }
 }
-
-

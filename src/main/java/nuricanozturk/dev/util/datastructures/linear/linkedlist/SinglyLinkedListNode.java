@@ -39,5 +39,3 @@ public class SinglyLinkedListNode<T>
         this.next = next;
     }
 }
-
-
