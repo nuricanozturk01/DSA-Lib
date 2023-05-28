@@ -1,3 +1,11 @@
+/**
+ * FILE		    : LinearSearchTest.java
+ * AUTHOR		: Nuri Can OZTURK
+ * LAST UPDATE	: 28.05.2023
+ * LinearSearchTest class is test class for LinearSearch class.
+ * Copyleft (c) DSA-Lib
+ * All Rights Free
+ */
 package nuricanozturk.dev.util.algorithms.sort.search;
 
 import org.junit.jupiter.params.ParameterizedTest;

@@ -8,6 +8,8 @@
  */
 package nuricanozturk.dev.util.datastructures.linear;
 
+import nuricanozturk.dev.util.datastructures.linear.interfaces.IQueue;
+
 import java.util.Optional;
 
 import static java.util.Optional.empty;
@@ -37,5 +39,15 @@ public class Queue<T> implements IQueue<T>
     public void enqueue(T item)
     {
         m_linkedList.insertLast(item);
+    }
+
+    @Override
+    public boolean isFull() {
+        return false;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return false;
     }
 }

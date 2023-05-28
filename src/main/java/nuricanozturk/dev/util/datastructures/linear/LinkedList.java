@@ -8,6 +8,8 @@
 ----------------------------------------------------------------*/
 package nuricanozturk.dev.util.datastructures.linear;
 
+import nuricanozturk.dev.util.datastructures.linear.interfaces.ILinkedList;
+
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.NoSuchElementException;

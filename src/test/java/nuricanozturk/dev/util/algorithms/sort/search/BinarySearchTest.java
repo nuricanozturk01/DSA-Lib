@@ -1,3 +1,11 @@
+/**
+ * FILE		    : BinarySearchTest.java
+ * AUTHOR		: Nuri Can OZTURK
+ * LAST UPDATE	: 28.05.2023
+ * BinarySearchTest class is test class for BinarySearch class.
+ * Copyleft (c) DSA-Lib
+ * All Rights Free
+ */
 package nuricanozturk.dev.util.algorithms.sort.search;
 
 import nuricanozturk.dev.util.algorithms.search.SearchCollections;

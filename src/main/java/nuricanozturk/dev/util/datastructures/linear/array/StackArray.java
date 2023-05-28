@@ -1,5 +1,6 @@
-package nuricanozturk.dev.util.datastructures.linear;
+package nuricanozturk.dev.util.datastructures.linear.array;
 
+import nuricanozturk.dev.util.datastructures.linear.interfaces.IStack;
 import nuricanozturk.dev.util.exception.StackFullException;
 
 import java.util.NoSuchElementException;
@@ -9,7 +10,6 @@ import static java.util.Optional.empty;
 import static java.util.Optional.of;
 
 public class StackArray<T> implements IStack<T> {
-    private final int DEFAULT_CAPACITY = 10;
     private final T[] m_stackArr;
     private final int m_capacity;
     private int m_size;
@@ -19,6 +19,7 @@ public class StackArray<T> implements IStack<T> {
         this(10);
     }
 
+    @SuppressWarnings("unchecked")
     public StackArray(int capacity) {
         m_capacity = capacity;
         m_size = 0;

@@ -6,12 +6,15 @@
  * Copyleft (c) DSA-Lib
  * All Rights Free
  */
-package nuricanozturk.dev.util.datastructures.linear;
+package nuricanozturk.dev.util.datastructures.linear.interfaces;
+
+import nuricanozturk.dev.util.datastructures.linear.LinkedList;
+import nuricanozturk.dev.util.datastructures.linear.SinglyLinkedListNode;
 
 import java.util.Collection;
 import java.util.Optional;
 
-interface ILinkedList<T> extends Cloneable, Iterable<T>, Collection<T>
+public interface ILinkedList<T> extends Cloneable, Iterable<T>, Collection<T>
 {
     /**
      * insert your item to head.

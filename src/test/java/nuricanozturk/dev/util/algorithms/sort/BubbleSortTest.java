@@ -1,3 +1,11 @@
+/**
+ * FILE		    : BubbleSortTest.java
+ * AUTHOR		: Nuri Can OZTURK
+ * LAST UPDATE	: 28.05.2023
+ * BubbleSortTest class is test class for BubbleSort class.
+ * Copyleft (c) DSA-Lib
+ * All Rights Free
+ */
 package nuricanozturk.dev.util.algorithms.sort;
 
 import org.junit.jupiter.api.BeforeEach;

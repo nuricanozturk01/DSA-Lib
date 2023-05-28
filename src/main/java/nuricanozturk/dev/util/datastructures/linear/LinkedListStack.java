@@ -8,6 +8,8 @@
  */
 package nuricanozturk.dev.util.datastructures.linear;
 
+import nuricanozturk.dev.util.datastructures.linear.interfaces.IStack;
+
 import java.util.Optional;
 
 import static java.util.Optional.empty;

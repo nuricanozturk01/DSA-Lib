@@ -6,11 +6,11 @@
  * Copyleft (c) DSA-Lib
  * All Rights Free
  */
-package nuricanozturk.dev.util.datastructures.linear;
+package nuricanozturk.dev.util.datastructures.linear.interfaces;
 
 import java.util.Optional;
 
-interface IQueue<T>
+public interface IQueue<T>
 {
     /**
      * Get first element from Linked List. İf empty, return Optional.Empty().
@@ -32,4 +32,14 @@ interface IQueue<T>
      * @param item your item
      */
     void enqueue(T item);
+
+    /**
+     * @return true if full else return false
+     */
+    boolean isFull();
+
+    /**
+     * @return true if empty else return false
+     */
+    boolean isEmpty();
 }

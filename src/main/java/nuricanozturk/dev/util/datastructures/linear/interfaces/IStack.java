@@ -6,11 +6,11 @@
  * Copyleft (c) DSA-Lib
  * All Rights Free
  */
-package nuricanozturk.dev.util.datastructures.linear;
+package nuricanozturk.dev.util.datastructures.linear.interfaces;
 
 import java.util.Optional;
 
-interface IStack<T> {
+public interface IStack<T> {
     /**
      * Get first element from Linked List. İf empty, return Optional.Empty().
      *
