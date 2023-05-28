@@ -14,6 +14,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
+import static nuricanozturk.dev.util.collection.DataStructureCollections.createEmptyQueueArray;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class QueueArrayTest {
@@ -22,7 +23,7 @@ public class QueueArrayTest {
 
     @BeforeEach
     public void setup() {
-        m_queue = new QueueArray<>();
+        m_queue = createEmptyQueueArray();
         Arrays.stream(stringArr).forEach(m_queue::enqueue);
     }
 

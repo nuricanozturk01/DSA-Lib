@@ -6,7 +6,10 @@
 	Copyleft (c) DSA-Lib
 	All Rights Free
 ----------------------------------------------------------------*/
-package nuricanozturk.dev.util.algorithms.search;
+package nuricanozturk.dev.util.collection;
+
+import nuricanozturk.dev.util.algorithms.search.BinarySearch;
+import nuricanozturk.dev.util.algorithms.search.LinearSearch;
 
 import java.util.Collection;
 import java.util.function.Consumer;

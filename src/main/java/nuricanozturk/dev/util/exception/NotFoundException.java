@@ -1,4 +1,4 @@
-package nuricanozturk.dev.util.algorithms.search;
+package nuricanozturk.dev.util.exception;
 
 public class NotFoundException extends RuntimeException
 {

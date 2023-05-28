@@ -15,12 +15,13 @@
  */
 package nuricanozturk.dev.util.algorithms.search;
 
+import nuricanozturk.dev.util.exception.NotFoundException;
+
 import java.util.Collection;
-import java.util.Collections;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
-final class LinearSearch
+public final class LinearSearch
 {
     private LinearSearch() {}
 
