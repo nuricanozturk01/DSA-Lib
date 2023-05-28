@@ -1,14 +1,14 @@
 /**
- * FILE		    : StackArrayTest.java
+ * FILE		    : LinkedListStackTest.java
  * AUTHOR		: Nuri Can OZTURK
  * LAST UPDATE	: 28.05.2023
- * StackArrayTest class is test class for StackArray class.
+ * LinkedListStackTest class is test class for LinkedListStack class.
  * Copyleft (c) DSA-Lib
  * All Rights Free
  */
-package nuricanozturk.dev.util;
+package nuricanozturk.dev.util.datastructures.linear;
 
-import nuricanozturk.dev.util.datastructures.linear.StackArray;
+import nuricanozturk.dev.util.datastructures.linear.LinkedListStack;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -16,14 +16,14 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-public class StackArrayTest {
+public class LinkedListStackTest {
 
     private static final String[] stringArr = new String[]{"Nuri", "Can", "ozturk", "stack", "array"};
-    private StackArray<String> stack;
+    private LinkedListStack<String> stack;
 
     @BeforeEach
     public void setup() {
-        stack = new StackArray<>();
+        stack = new LinkedListStack<>();
         Arrays.stream(stringArr).forEach(stack::push);
     }
 
@@ -37,8 +37,10 @@ public class StackArrayTest {
     @Test
     public void testStackItems() {
         int index = stringArr.length - 1;
-        while (!stack.isEmpty())
-            Assertions.assertEquals(stringArr[index--], stack.pop().orElse(null));
+        while (!stack.isEmpty()) {
+            String item = stack.pop().orElse(null);
+            Assertions.assertEquals(stringArr[index--], item);
+        }
     }
 
     @DisplayName("Pop all item and check size of stack")

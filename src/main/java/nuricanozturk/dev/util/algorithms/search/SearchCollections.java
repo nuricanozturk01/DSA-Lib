@@ -16,10 +16,10 @@ public final class SearchCollections
 {
     private SearchCollections() {}
 
-    public static <T> T linearSearch(Collection<T> collection, T data, String msg)
+    /*public static <T> T linearSearch(Collection<T> collection, T data, String msg)
     {
         return LinearSearch.linearSearch(collection, data, msg);
-    }
+    }*/
     public static <T> T linearSearch(Collection<T> collection, Predicate<T> predicate, T notFoundReturnValue)
     {
         return LinearSearch.linearSearch(collection, predicate, notFoundReturnValue);
