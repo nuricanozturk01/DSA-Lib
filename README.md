@@ -5,11 +5,11 @@
 ## Including Classes
 
 ### Search Algorithms
-    - Linear Search = +
-    - Binary Search
+    - Linear Search = +      [Test Class] = +
+    - Binary Search = TODO   [Test Class] = +
 
 ### Sort Algorithms
-    - BubbleSort = + 
+    - BubbleSort = +         [Test Class] = +
     - HeapSort
     - InsertionSort
     - MergeSort
@@ -18,14 +18,15 @@
     - TimSort
 
 ### Linear Data Structures
-    - SinglyLinkedList
-    - DoublyLinkedList
-    - Queue
-    - Circular Queue
-    - Stack
-    - SpaghettiStack
-    - Stack Array
-    - Stack Queue
+    - SinglyLinkedList = [~%70]
+    - DoublyLinkedList = NOT YET
+    - LinkedListQueue = +                 [Test Class] = +
+    - QueueArray = +                      [Test Class] = +
+    - CircularQueueArray = +              [Test Class] = +
+    - LinkedListCircularQueue = +         [Test Class] = +
+    - LinkedListStack = +                 [Test Class] = +
+    - StackArray = +                      [Test Class] = +
+    - SpaghettiStack = NOT YET
     - .....
 
 ### Non-linear Data Structures
@@ -34,8 +35,3 @@
     - Heap
     - Graph
     - .....
-
-#### Authors:
-    -> Ahmet KOÇ
-    -> Doğan ARIK
-    -> Nuri Can ÖZTÜRK
