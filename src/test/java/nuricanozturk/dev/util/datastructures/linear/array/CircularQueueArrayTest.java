@@ -1,43 +1,64 @@
+/**
+ * FILE		    : CircularQueueArrayTest.java
+ * AUTHOR		: Nuri Can OZTURK
+ * LAST UPDATE	: 28.05.2023
+ * CircularQueueArrayTest class is test class for CircularQueueArray class.
+ * Copyleft (c) DSA-Lib
+ * All Rights Free
+ */
 package nuricanozturk.dev.util.datastructures.linear.array;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
+import static org.junit.jupiter.api.Assertions.*;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-// NOT COMPLETED YET
 public class CircularQueueArrayTest {
-   /* private static final String[] stringArr = new String[]{"Nuri", "Can", "ozturk", "stack", "array"};
-    private CircularQueueArray<String> m_queue;
+    private CircularQueueArray<Integer> queue;
 
     @BeforeEach
-    public void setup() {
-        m_queue = new CircularQueueArray<>(4);
-        Arrays.stream(stringArr).forEach(m_queue::enqueue);
+    public void init() {
+        queue = new CircularQueueArray<>(5);
     }
 
-    @DisplayName("Validate Enqueue Operation Size")
     @Test
-    public void testPushOperationSize() {
-        assertEquals(stringArr.length, m_queue.getSize());
+    public void testEnqueueAndDequeue() {
+        queue.enqueue(10);
+        queue.enqueue(20);
+        queue.enqueue(30);
+
+        assertEquals(10, queue.dequeue().orElseThrow());
+        assertEquals(20, queue.dequeue().orElseThrow());
+        assertEquals(30, queue.dequeue().orElseThrow());
     }
 
-    @DisplayName("Validate Queue Items")
     @Test
-    public void testQueueItems() {
-        int index = 0;
-        while (!m_queue.isEmpty())
-            assertEquals(stringArr[index++], m_queue.dequeue().orElse(null));
+    public void testPeek() {
+        queue.enqueue(10);
+        queue.enqueue(20);
+        queue.enqueue(30);
+
+        assertEquals(10, queue.peek().orElseThrow());
+
+        queue.dequeue();
+
+        assertEquals(20, queue.peek().orElseThrow());
     }
 
-    @DisplayName("Dequeue all item and check size of Queue")
     @Test
-    public void popAndSizeZeroTest() {
-        while (!m_queue.isEmpty())
-            m_queue.dequeue();
-        assertEquals(0, m_queue.getSize());
-    }*/
+    public void testIsEmpty() {
+        assertTrue(queue.isEmpty());
+
+        queue.enqueue(10);
+        queue.enqueue(20);
+        queue.enqueue(30);
+
+        assertFalse(queue.isEmpty());
+
+        queue.dequeue();
+        queue.dequeue();
+        queue.dequeue();
+
+        assertTrue(queue.isEmpty());
+    }
 }
