@@ -52,14 +52,6 @@ public class DoublyLinkedList<T> implements IDoublyLinkedList<T> {
         m_size++;
     }
 
-    public static void main(String[] args) {
-        var ll = DataStructureCollections.<String>createEmptyDoublyLinkedList();
-        ll.insertFirst("nuri");
-        ll.insertFirst("can");
-        ll.insertFirst("ozturk");
-
-        System.out.println(ll.size());
-    }
     @Override
     public void insertLast(T item) {
         var newNode = new DoublyLinkedListNode<T>(item);
