@@ -35,3 +35,9 @@
     - Heap = NOT COMPLETED YET
     - Graph = NOT COMPLETED YET
     - .....
+
+----------------------------------------------------------------------------------------------------------
+|                                                                                                         |
+| If you want to add any algorithm or data structures without above, contact me. (canozturk309@gmail.com) |  
+|                                                                                                         |
+----------------------------------------------------------------------------------------------------------
