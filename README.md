@@ -37,4 +37,4 @@
     - .....
     
 # Contact me
-    Note: If you want to add any algorithm or data structures without above, contact me. (canozturk309@gmail.com)
+    Note: If you want to add any algorithm or data structures without above, contact me. We can work together.(canozturk309@gmail.com)
