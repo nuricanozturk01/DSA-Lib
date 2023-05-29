@@ -8,6 +8,7 @@
  */
 package nuricanozturk.dev.util.datastructures.linear.linkedlist;
 
+import nuricanozturk.dev.util.collection.DataStructureCollections;
 import nuricanozturk.dev.util.datastructures.linear.interfaces.IDoublyLinkedList;
 
 import java.util.Collection;
@@ -22,6 +23,14 @@ public class DoublyLinkedList<T> implements IDoublyLinkedList<T> {
     private DoublyLinkedListNode<T> m_tail;
     private int m_size;
 
+    public DoublyLinkedListNode<T> getHead() {
+        return m_head;
+    }
+
+    public DoublyLinkedListNode<T> getTail() {
+        return m_tail;
+    }
+
     public DoublyLinkedList() {
         m_head = null;
         m_tail = null;
@@ -34,7 +43,8 @@ public class DoublyLinkedList<T> implements IDoublyLinkedList<T> {
         if (isEmpty()) {
             m_head = newNode;
             m_tail = newNode;
-        } else {
+        }
+        else {
             newNode.setNext(m_head);
             m_head.setPrev(newNode);
             m_head = newNode;
@@ -42,13 +52,22 @@ public class DoublyLinkedList<T> implements IDoublyLinkedList<T> {
         m_size++;
     }
 
+    public static void main(String[] args) {
+        var ll = DataStructureCollections.<String>createEmptyDoublyLinkedList();
+        ll.insertFirst("nuri");
+        ll.insertFirst("can");
+        ll.insertFirst("ozturk");
+
+        System.out.println(ll.size());
+    }
     @Override
     public void insertLast(T item) {
         var newNode = new DoublyLinkedListNode<T>(item);
         if (isEmpty()) {
             m_head = newNode;
             m_tail = newNode;
-        } else {
+        }
+        else {
             newNode.setPrev(m_tail);
             m_tail.setNext(newNode);
             m_tail = newNode;
@@ -61,21 +80,24 @@ public class DoublyLinkedList<T> implements IDoublyLinkedList<T> {
         var newNode = new DoublyLinkedListNode<T>(searchedData);
         if (node == null) {
             insertFirst(searchedData);
-        } else {
+        }
+        else {
             var currentNode = m_head;
-            while (currentNode != null && currentNode != node) {
+
+            while (currentNode != null && currentNode != node)
                 currentNode = currentNode.getNext();
-            }
+
             if (currentNode != null) {
                 newNode.setNext(currentNode.getNext());
                 newNode.setPrev(currentNode);
-                if (currentNode.getNext() != null) {
+                if (currentNode.getNext() != null)
                     currentNode.getNext().setPrev(newNode);
-                }
+
                 currentNode.setNext(newNode);
-                if (currentNode == m_tail) {
+
+                if (currentNode == m_tail)
                     m_tail = newNode;
-                }
+
                 m_size++;
             }
         }
@@ -85,22 +107,20 @@ public class DoublyLinkedList<T> implements IDoublyLinkedList<T> {
     @Override
     public Optional<T> removeElement(T element) {
         var currentNode = m_head;
-        while (currentNode != null && !currentNode.getData().equals(element)) {
+        while (currentNode != null && !currentNode.getData().equals(element))
             currentNode = currentNode.getNext();
-        }
+
         if (currentNode != null) {
             if (currentNode == m_head) {
                 m_head = currentNode.getNext();
-                if (m_head != null) {
+                if (m_head != null)
                     m_head.setPrev(null);
-                }
+
             } else {
                 currentNode.getPrev().setNext(currentNode.getNext());
-                if (currentNode == m_tail) {
+                if (currentNode == m_tail)
                     m_tail = currentNode.getPrev();
-                } else {
-                    currentNode.getNext().setPrev(currentNode.getPrev());
-                }
+                else currentNode.getNext().setPrev(currentNode.getPrev());
             }
             m_size--;
             return of(currentNode.getData());
@@ -115,11 +135,11 @@ public class DoublyLinkedList<T> implements IDoublyLinkedList<T> {
         }
         var removedNode = m_head;
         m_head = m_head.getNext();
-        if (m_head != null) {
+
+        if (m_head != null)
             m_head.setPrev(null);
-        } else {
-            m_tail = null;
-        }
+        else m_tail = null;
+
         m_size--;
         return of(removedNode.getData());
     }
@@ -131,11 +151,12 @@ public class DoublyLinkedList<T> implements IDoublyLinkedList<T> {
         }
         var removedNode = m_tail;
         m_tail = m_tail.getPrev();
-        if (m_tail != null) {
+
+        if (m_tail != null)
             m_tail.setNext(null);
-        } else {
-            m_head = null;
-        }
+
+        else m_head = null;
+
         m_size--;
         return of(removedNode.getData());
     }
@@ -143,12 +164,12 @@ public class DoublyLinkedList<T> implements IDoublyLinkedList<T> {
 
     @Override
     public Optional<T> peek() {
-        return empty();
+        return isEmpty() ? empty() : of(m_head.getData());
     }
 
     @Override
     public int size() {
-        return 0;
+        return m_size;
     }
 
     @Override

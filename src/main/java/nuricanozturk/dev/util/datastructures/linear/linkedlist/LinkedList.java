@@ -11,12 +11,14 @@ package nuricanozturk.dev.util.datastructures.linear.linkedlist;
 import nuricanozturk.dev.util.collection.DataStructureCollections;
 import nuricanozturk.dev.util.datastructures.linear.interfaces.ILinkedList;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 import java.util.function.Consumer;
 
 import static java.util.Optional.empty;
 import static java.util.Optional.of;
-import static nuricanozturk.dev.util.collection.DataStructureCollections.createEmptyLinkedList;
 
 // TODO: Not completed yet
 public class LinkedList<T> implements ILinkedList<T> {
@@ -29,6 +31,21 @@ public class LinkedList<T> implements ILinkedList<T> {
         m_size = 0;
     }
 
+    public static void main(String[] args) {
+        var ll = DataStructureCollections.<String>createEmptyLinkedList();
+        ll.insertLast("ali");
+        ll.insertLast("veli");
+        ll.insertLast("can");
+        ll.insertLast("nuri");
+
+
+        ll.removeLast();
+        ll.removeLast();
+        ll.removeLast();
+
+        while (!ll.isEmpty())
+            System.out.println(ll.removeFirst());
+    }
 
     public SinglyLinkedListNode<T> getHead() {
         return m_head;
@@ -84,6 +101,7 @@ public class LinkedList<T> implements ILinkedList<T> {
 
         if (m_head.getData().equals(element)) {
             m_head = m_head.getNext();
+            m_size--;
             return of(element);
         }
 
@@ -92,6 +110,7 @@ public class LinkedList<T> implements ILinkedList<T> {
         while (currentNode.getNext() != null) {
             if (currentNode.getNext().getData().equals(element)) {
                 currentNode.setNext(currentNode.getNext().getNext());
+                m_size--;
                 return of(element);
             }
             currentNode = currentNode.getNext();
@@ -164,25 +183,24 @@ public class LinkedList<T> implements ILinkedList<T> {
 
         return deletedElement.isPresent();
     }
+
     @Override
     public void forEach(Consumer<? super T> action) {
         for (T t : this)
             action.accept(t);
     }
+
     @Override
     public boolean contains(Object o) {
         return stream().anyMatch(l -> l.equals(o));
     }
+//--------------------------------------------------------------------------------------------------------------------
 
     @Override
     @SuppressWarnings("unchecked")
     public Object[] toArray() {
         return (T[]) stream().toArray(Object[]::new);
     }
-//--------------------------------------------------------------------------------------------------------------------
-
-
-
 
     @Override
     public <T1> T1[] toArray(T1[] a) {
@@ -193,7 +211,6 @@ public class LinkedList<T> implements ILinkedList<T> {
     public boolean add(T t) {
         throw new UnsupportedOperationException("NOT SUPPORTED");
     }
-
 
     @Override
     public boolean containsAll(Collection<?> c) {
@@ -256,26 +273,8 @@ public class LinkedList<T> implements ILinkedList<T> {
         return of(deletedItem);
     }
 
-
     @Override
     public Optional<T> peek() {
         return of(m_head.getData());
-    }
-
-    public static void main(String[] args)
-    {
-        var ll = DataStructureCollections.<String>createEmptyLinkedList();
-        ll.insertLast("ali");
-        ll.insertLast("veli");
-        ll.insertLast("can");
-        ll.insertLast("nuri");
-
-
-        ll.removeLast();
-        ll.removeLast();
-        ll.removeLast();
-
-        while (!ll.isEmpty())
-            System.out.println(ll.removeFirst());
     }
 }
