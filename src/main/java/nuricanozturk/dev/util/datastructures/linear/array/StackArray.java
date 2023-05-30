@@ -21,7 +21,7 @@ public class StackArray<T> implements IStack<T> {
     private final T[] m_stackArr;
     private final int m_capacity;
     private int m_size;
-    private int m_finger;
+    private int m_top;
 
     public StackArray() {
         this(10);
@@ -31,13 +31,13 @@ public class StackArray<T> implements IStack<T> {
     public StackArray(int capacity) {
         m_capacity = capacity;
         m_size = 0;
-        m_finger = -1;
+        m_top = -1;
         m_stackArr = (T[]) new Object[capacity];
     }
 
     @Override
     public Optional<T> peek() {
-        return isEmpty() ? empty() : of(m_stackArr[m_finger]);
+        return isEmpty() ? empty() : of(m_stackArr[m_top]);
     }
 
     public int getSize() {
@@ -50,9 +50,9 @@ public class StackArray<T> implements IStack<T> {
         if (isEmpty())
             throw new NoSuchElementException("Stack has not any element...");
 
-        var item = m_stackArr[m_finger];
+        var item = m_stackArr[m_top];
 
-        m_stackArr[m_finger--] = null;
+        m_stackArr[m_top--] = null;
         m_size--;
 
         return of(item);
@@ -73,7 +73,7 @@ public class StackArray<T> implements IStack<T> {
         if (isFull())
             throw new StackFullException("Stack is full");
 
-        m_stackArr[++m_finger] = item;
+        m_stackArr[++m_top] = item;
         m_size++;
     }
 }

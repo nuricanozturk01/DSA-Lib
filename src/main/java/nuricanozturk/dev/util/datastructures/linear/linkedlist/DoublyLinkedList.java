@@ -8,7 +8,6 @@
  */
 package nuricanozturk.dev.util.datastructures.linear.linkedlist;
 
-import nuricanozturk.dev.util.collection.DataStructureCollections;
 import nuricanozturk.dev.util.datastructures.linear.interfaces.IDoublyLinkedList;
 
 import java.util.Collection;
@@ -23,6 +22,12 @@ public class DoublyLinkedList<T> implements IDoublyLinkedList<T> {
     private DoublyLinkedListNode<T> m_tail;
     private int m_size;
 
+    public DoublyLinkedList() {
+        m_head = null;
+        m_tail = null;
+        m_size = 0;
+    }
+
     public DoublyLinkedListNode<T> getHead() {
         return m_head;
     }
@@ -31,20 +36,13 @@ public class DoublyLinkedList<T> implements IDoublyLinkedList<T> {
         return m_tail;
     }
 
-    public DoublyLinkedList() {
-        m_head = null;
-        m_tail = null;
-        m_size = 0;
-    }
-
     @Override
     public void insertFirst(T item) {
         var newNode = new DoublyLinkedListNode<T>(item);
         if (isEmpty()) {
             m_head = newNode;
             m_tail = newNode;
-        }
-        else {
+        } else {
             newNode.setNext(m_head);
             m_head.setPrev(newNode);
             m_head = newNode;
@@ -58,8 +56,7 @@ public class DoublyLinkedList<T> implements IDoublyLinkedList<T> {
         if (isEmpty()) {
             m_head = newNode;
             m_tail = newNode;
-        }
-        else {
+        } else {
             newNode.setPrev(m_tail);
             m_tail.setNext(newNode);
             m_tail = newNode;
@@ -72,8 +69,7 @@ public class DoublyLinkedList<T> implements IDoublyLinkedList<T> {
         var newNode = new DoublyLinkedListNode<T>(searchedData);
         if (node == null) {
             insertFirst(searchedData);
-        }
-        else {
+        } else {
             var currentNode = m_head;
 
             while (currentNode != null && currentNode != node)
