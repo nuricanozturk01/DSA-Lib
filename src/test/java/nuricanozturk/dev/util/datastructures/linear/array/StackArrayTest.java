@@ -8,12 +8,13 @@
  */
 package nuricanozturk.dev.util.datastructures.linear.array;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class StackArrayTest {
 
@@ -29,7 +30,7 @@ public class StackArrayTest {
     @DisplayName("Validate Push Operation Size")
     @Test
     public void testPushOperationSize() {
-        Assertions.assertEquals(stringArr.length, stack.getSize());
+        assertEquals(stringArr.length, stack.getSize());
     }
 
     @DisplayName("Validate Stack Items")
@@ -37,7 +38,7 @@ public class StackArrayTest {
     public void testStackItems() {
         int index = stringArr.length - 1;
         while (!stack.isEmpty())
-            Assertions.assertEquals(stringArr[index--], stack.pop().orElse(null));
+            assertEquals(stringArr[index--], stack.pop().orElse(null));
     }
 
     @DisplayName("Pop all item and check size of stack")
@@ -45,6 +46,6 @@ public class StackArrayTest {
     public void popAndSizeZeroTest() {
         while (!stack.isEmpty())
             stack.pop();
-        Assertions.assertEquals(0, stack.getSize());
+        assertEquals(0, stack.getSize());
     }
 }
