@@ -17,7 +17,7 @@
     - InsertionSort = NOT COMPLETED YET     [Test Class] = NOT COMPLETED YET                 
     - MergeSort = NOT COMPLETED YET         [Test Class] = NOT COMPLETED YET                 
     - QuickSort = NOT COMPLETED YET         [Test Class] = NOT COMPLETED YET                 
-    -  TimSort = NOT COMPLETED YET          [Test Class] = NOT COMPLETED YET                  
+    - TimSort = NOT COMPLETED YET          [Test Class] = NOT COMPLETED YET                  
 
 ### Linear Data Structures
 
