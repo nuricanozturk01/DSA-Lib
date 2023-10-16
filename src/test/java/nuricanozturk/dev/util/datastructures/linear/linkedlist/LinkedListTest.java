@@ -1,54 +1,145 @@
+/**
+ * FILE		    : LinkedListStackTest.java
+ * AUTHOR		: Nuri Can OZTURK
+ * LAST UPDATE	: 16.10.2023
+ * LinkedListTest class is test class for LinkedList class.
+ * Copyleft (c) DSA-Lib
+ * All Rights Free
+ */
 package nuricanozturk.dev.util.datastructures.linear.linkedlist;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.Optional;
-
 import static org.junit.jupiter.api.Assertions.*;
 
-class LinkedListTest {
+public class LinkedListTest
+{
     private LinkedList<String> linkedList;
 
     @BeforeEach
-    void setUp() {
+    public void setUp()
+    {
         linkedList = new LinkedList<>();
+        linkedList.insertLast("ali");
+        linkedList.insertLast("veli");
+        linkedList.insertLast("can");
     }
 
     @Test
-    void testInsertFirst() {
-        linkedList.insertFirst("Nuri");
-        linkedList.insertFirst("Can");
-        assertEquals(2, linkedList.size());
-        assertEquals("Can", linkedList.removeFirst().orElse(null));
-        assertEquals("Nuri", linkedList.removeFirst().orElse(null));
-        assertTrue(linkedList.isEmpty());
+    public void testSize()
+    {
+        assertEquals(3, linkedList.size());
     }
 
     @Test
-    void testInsertLast() {
-        linkedList.insertLast("John");
-        linkedList.insertLast("Wick");
-        assertEquals(2, linkedList.size());
-        assertEquals("John", linkedList.removeFirst().orElse(null));
-        assertEquals("Wick", linkedList.removeFirst().orElse(null));
-        assertTrue(linkedList.isEmpty());
+    public void testIsEmpty()
+    {
+        assertFalse(linkedList.isEmpty());
     }
 
     @Test
-    void testRemoveElement() {
-        linkedList.insertLast("Apple");
-        linkedList.insertLast("Banana");
-        linkedList.insertLast("Cherry");
+    public void testInsertFirst()
+    {
+        linkedList.insertFirst("nuri");
+        assertEquals("nuri", linkedList.getHead().getData());
+    }
 
-        Optional<String> removedElement = linkedList.removeElement("Banana");
-        assertTrue(removedElement.isPresent());
-        assertEquals("Banana", removedElement.orElse(null));
-        assertEquals(2, linkedList.size());
-        assertFalse(linkedList.contains("Banana"));
+    @Test
+    public void testInsertLast()
+    {
+        linkedList.insertLast("ahmet");
+        var lastNode = linkedList.getHead();
+        while (lastNode.getNext() != null)
+        {
+            lastNode = lastNode.getNext();
+        }
+        assertEquals("ahmet", lastNode.getData());
+    }
 
-        removedElement = linkedList.removeElement("Grapes");
-        assertFalse(removedElement.isPresent());
+    @Test
+    public void testRemoveElement()
+    {
+        assertTrue(linkedList.removeElement("veli").isPresent());
         assertEquals(2, linkedList.size());
+    }
+
+    @Test
+    public void testRemoveElement_NotFound()
+    {
+        assertFalse(linkedList.removeElement("deneme").isPresent());
+        assertEquals(3, linkedList.size());
+    }
+
+    @Test
+    public void testIterator()
+    {
+        int count = 0;
+        for (String item : linkedList)
+        {
+            count++;
+        }
+        assertEquals(3, count);
+    }
+
+    @Test
+    public void testRemoveFirst()
+    {
+        linkedList.removeFirst();
+        assertEquals(2, linkedList.size());
+    }
+
+    @Test
+    public void testRemoveLast()
+    {
+        linkedList.removeLast();
+        assertEquals(2, linkedList.size());
+    }
+
+    @Test
+    public void testPeek()
+    {
+        assertEquals("ali", linkedList.peek().get());
+    }
+
+    @Test
+    public void testClone()
+    {
+        var clonedList = linkedList.clone(linkedList);
+        assertNotSame(linkedList, clonedList);
+        assertEquals(linkedList.size(), clonedList.size());
+    }
+
+    @Test
+    public void testAddAll()
+    {
+        var newList = new LinkedList<String>();
+        newList.addAll(linkedList);
+        assertEquals(linkedList.size(), newList.size());
+    }
+
+    @Test
+    public void testRemoveAll()
+    {
+        var removeList = new LinkedList<String>();
+        removeList.insertLast("can");
+        linkedList.removeAll(removeList);
+        assertEquals(2, linkedList.size());
+    }
+
+    @Test
+    public void testRetainAll()
+    {
+        var retainList = new LinkedList<String>();
+        retainList.insertLast("veli");
+        linkedList.retainAll(retainList);
+        assertEquals(1, linkedList.size());
+    }
+
+    @Test
+    public void testClear()
+    {
+        linkedList.clear();
+        assertEquals(0, linkedList.size());
     }
 }

@@ -14,7 +14,7 @@ import nuricanozturk.dev.util.functionalInterfaces.IBinaryPredicate;
 import java.util.Collection;
 import java.util.Collections;
 
-final class BubbleSort
+public final class BubbleSort
 {
     private static <T> void swap(T[] arr, int j, int i)
     {

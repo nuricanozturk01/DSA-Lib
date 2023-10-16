@@ -14,7 +14,8 @@ import org.junit.jupiter.api.Test;
 
 import static java.util.Arrays.stream;
 import static java.util.stream.IntStream.range;
-import static nuricanozturk.dev.util.algorithms.sort.SortAlgorithms.bubbleSort;
+
+import static nuricanozturk.dev.util.collection.NCollection.bubbleSort;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class BubbleSortTest {

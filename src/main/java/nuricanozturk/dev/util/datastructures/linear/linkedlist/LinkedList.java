@@ -21,17 +21,20 @@ import static java.util.Optional.empty;
 import static java.util.Optional.of;
 
 // TODO: Not completed yet
-public class LinkedList<T> implements ILinkedList<T> {
+public class LinkedList<T> implements ILinkedList<T>
+{
     private SinglyLinkedListNode<T> m_head;
     private int m_size;
 
 
-    public LinkedList() {
+    public LinkedList()
+    {
         m_head = null;
         m_size = 0;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         var ll = DataStructureCollections.<String>createEmptyLinkedList();
         ll.insertLast("ali");
         ll.insertLast("veli");
@@ -47,30 +50,36 @@ public class LinkedList<T> implements ILinkedList<T> {
             System.out.println(ll.removeFirst());
     }
 
-    public SinglyLinkedListNode<T> getHead() {
+    public SinglyLinkedListNode<T> getHead()
+    {
         return m_head;
     }
 
     @Override
-    public int size() {
+    public int size()
+    {
         return m_size;
     }
 
-    public boolean isEmpty() {
+    public boolean isEmpty()
+    {
         return m_head == null;
     }
 
     @Override
-    public LinkedList<T> clone(LinkedList<T> linkedList) {
-        return null;
+    public LinkedList<T> clone(LinkedList<T> linkedList)
+    {
+        return linkedList.stream().collect(LinkedList::new, LinkedList::insertLast, LinkedList::addAll);
     }
 
-    public void insertFirst(T data) {
+    public void insertFirst(T data)
+    {
         var node = new SinglyLinkedListNode<T>(data);
 
         if (isEmpty())
             m_head = node;
-        else {
+        else
+        {
             var p = m_head;
             m_head = node;
             m_head.setNext(p);
@@ -79,11 +88,14 @@ public class LinkedList<T> implements ILinkedList<T> {
         m_size++;
     }
 
-    public void insertLast(T data) {
+    public void insertLast(T data)
+    {
         var node = new SinglyLinkedListNode<>(data);
-        if (isEmpty()) {
+        if (isEmpty())
             m_head = node;
-        } else {
+
+        else
+        {
             var current = m_head;
 
             while (current.getNext() != null)
@@ -95,11 +107,13 @@ public class LinkedList<T> implements ILinkedList<T> {
     }
 
     @Override
-    public Optional<T> removeElement(T element) {
+    public Optional<T> removeElement(T element)
+    {
         if (m_head == null)
             return empty();
 
-        if (m_head.getData().equals(element)) {
+        if (m_head.getData().equals(element))
+        {
             m_head = m_head.getNext();
             m_size--;
             return of(element);
@@ -107,8 +121,10 @@ public class LinkedList<T> implements ILinkedList<T> {
 
         var currentNode = m_head;
 
-        while (currentNode.getNext() != null) {
-            if (currentNode.getNext().getData().equals(element)) {
+        while (currentNode.getNext() != null)
+        {
+            if (currentNode.getNext().getData().equals(element))
+            {
                 currentNode.setNext(currentNode.getNext().getNext());
                 m_size--;
                 return of(element);
@@ -120,10 +136,12 @@ public class LinkedList<T> implements ILinkedList<T> {
     }
 
     @Override
-    public Iterator<T> iterator() {
+    public Iterator<T> iterator()
+    {
         if (isEmpty())
             throw new NoSuchElementException("No such element on LinkedList....");
-        return new Iterator<>() {
+        return new Iterator<>()
+        {
             private final SinglyLinkedListNode<T> emptyNode = new SinglyLinkedListNode<>(m_head.getData());
             SinglyLinkedListNode<T> p = emptyNode;
 
@@ -132,12 +150,14 @@ public class LinkedList<T> implements ILinkedList<T> {
             } //non static initializer
 
             @Override
-            public boolean hasNext() {
+            public boolean hasNext()
+            {
                 return p.getNext() != null;
             }
 
             @Override
-            public T next() {
+            public T next()
+            {
                 if (!hasNext())
                     throw new NoSuchElementException("");
 
@@ -149,8 +169,10 @@ public class LinkedList<T> implements ILinkedList<T> {
     }
 
     @Override
-    public void insert(SinglyLinkedListNode<T> node, T searchedData) {
-        if (isEmpty()) {
+    public void insert(SinglyLinkedListNode<T> node, T searchedData)
+    {
+        if (isEmpty())
+        {
             m_head = node;
             m_size++;
             return;
@@ -159,16 +181,19 @@ public class LinkedList<T> implements ILinkedList<T> {
         var currentNode = m_head;
         SinglyLinkedListNode<T> previousNode = null;
 
-        while (currentNode != null && !currentNode.getData().equals(searchedData)) {
+        while (currentNode != null && !currentNode.getData().equals(searchedData))
+        {
             previousNode = currentNode;
             currentNode = currentNode.getNext();
         }
 
-        if (currentNode != null) {
+        if (currentNode != null)
+        {
             node.setNext(currentNode.getNext());
             currentNode.setNext(node);
             m_size++;
-        } else if (previousNode != null) {
+        } else if (previousNode != null)
+        {
             previousNode.setNext(node);
             m_size++;
         }
@@ -176,7 +201,11 @@ public class LinkedList<T> implements ILinkedList<T> {
 
     @Override
     @SuppressWarnings("all")
-    public boolean remove(Object object) {
+    public boolean remove(Object object)
+    {
+        if (m_head == null)
+            throw new NoSuchElementException("No such element on LinkedList.");
+
         var obj = (T) object;
 
         var deletedElement = removeElement(obj);
@@ -185,59 +214,93 @@ public class LinkedList<T> implements ILinkedList<T> {
     }
 
     @Override
-    public void forEach(Consumer<? super T> action) {
+    public void forEach(Consumer<? super T> action)
+    {
         for (T t : this)
             action.accept(t);
     }
 
     @Override
-    public boolean contains(Object o) {
+    public boolean contains(Object o)
+    {
         return stream().anyMatch(l -> l.equals(o));
     }
-//--------------------------------------------------------------------------------------------------------------------
 
     @Override
-    @SuppressWarnings("unchecked")
-    public Object[] toArray() {
-        return (T[]) stream().toArray(Object[]::new);
+    public boolean add(T t)
+    {
+        insertLast(t);
+        return true;
     }
 
     @Override
-    public <T1> T1[] toArray(T1[] a) {
-        throw new UnsupportedOperationException("NOT SUPPORTED");
+    public boolean containsAll(Collection<?> c)
+    {
+        return c.stream().allMatch(this::contains);
     }
 
     @Override
-    public boolean add(T t) {
-        throw new UnsupportedOperationException("NOT SUPPORTED");
+    public boolean addAll(Collection<? extends T> c)
+    {
+        c.forEach(this::insertLast);
+        return true;
     }
 
     @Override
-    public boolean containsAll(Collection<?> c) {
-        throw new UnsupportedOperationException("NOT IMPLEMENTED YET...");
+    public boolean removeAll(Collection<?> c)
+    {
+        var modified = false;
+
+        for (Object item : c)
+            if (remove(item))
+                modified = true;
+
+        return modified;
+    }
+
+
+    @Override
+    public boolean retainAll(Collection<?> c)
+    {
+        boolean modified = false;
+        var currentNode = m_head;
+        SinglyLinkedListNode<T> prevNode = null;
+        while (currentNode != null)
+        {
+            if (!c.contains(currentNode.getData()))
+            {
+                if (prevNode == null)
+                {
+                    m_head = currentNode.getNext();
+                    currentNode = m_head;
+                }
+                else
+                {
+                    prevNode.setNext(currentNode.getNext());
+                    currentNode = currentNode.getNext();
+                }
+                m_size--;
+                modified = true;
+            }
+            else
+            {
+                prevNode = currentNode;
+                currentNode = currentNode.getNext();
+            }
+        }
+        return modified;
     }
 
     @Override
-    public boolean addAll(Collection<? extends T> c) {
-        throw new UnsupportedOperationException("NOT IMPLEMENTED YET...");
+    public void clear()
+    {
+        m_head = null;
+        m_size = 0;
     }
 
-    @Override
-    public boolean removeAll(Collection<?> c) {
-        throw new UnsupportedOperationException("NOT IMPLEMENTED YET...");
-    }
 
-    @Override
-    public boolean retainAll(Collection<?> c) {
-        throw new UnsupportedOperationException("NOT SUPPORTED");
-    }
-
-    @Override
-    public void clear() {
-        throw new UnsupportedOperationException("NOT IMPLEMENTED YET...");
-    }
-
-    public Optional<T> removeFirst() {
+    public Optional<T> removeFirst()
+    {
         if (isEmpty())
             throw new NoSuchElementException("LinkedList has not any element...");
         var deletedElement = m_head.getData();
@@ -248,12 +311,15 @@ public class LinkedList<T> implements ILinkedList<T> {
     }
 
     @Override
-    public Optional<T> removeLast() {
-        if (isEmpty()) {
+    public Optional<T> removeLast()
+    {
+        if (isEmpty())
+        {
             return Optional.empty();
         }
 
-        if (m_head.getNext() == null) {
+        if (m_head.getNext() == null)
+        {
             var deletedItem = m_head.getData();
             m_head = null;
             m_size--;
@@ -274,7 +340,35 @@ public class LinkedList<T> implements ILinkedList<T> {
     }
 
     @Override
-    public Optional<T> peek() {
+    public Optional<T> peek()
+    {
+        if (isEmpty())
+            return Optional.empty();
+
         return of(m_head.getData());
     }
+
+    @Override
+    public Object[] toArray()
+    {
+        Object[] array = new Object[m_size];
+        int index = 0;
+        for (T item : this)
+        {
+            array[index] = item;
+            index++;
+        }
+        return array;
+    }
+//--------------------------------------------------------------------------------------------------------------------
+
+
+
+    @Override
+    public <T1> T1[] toArray(T1[] a)
+    {
+        throw new UnsupportedOperationException("toArray method is not supported.");
+    }
+
+
 }
