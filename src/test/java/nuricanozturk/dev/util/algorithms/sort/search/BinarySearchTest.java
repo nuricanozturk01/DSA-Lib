@@ -8,13 +8,14 @@
  */
 package nuricanozturk.dev.util.algorithms.sort.search;
 
+import nuricanozturk.dev.util.collection.NCollection;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import java.util.List;
 
 import static java.util.List.of;
-import static nuricanozturk.dev.util.collection.SearchCollections.binarySearch;
+import static nuricanozturk.dev.util.collection.NCollection.binarySearch;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class BinarySearchTest {

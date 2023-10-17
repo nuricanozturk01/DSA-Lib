@@ -14,7 +14,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 import java.util.List;
 
 import static java.util.List.of;
-import static nuricanozturk.dev.util.collection.SearchCollections.linearSearch;
+import static nuricanozturk.dev.util.collection.NCollection.linearSearch;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 

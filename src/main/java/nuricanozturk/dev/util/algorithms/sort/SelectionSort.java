@@ -85,12 +85,4 @@ final class SelectionSort {
                 .reduce((minIndex, currentIndex) -> arr[currentIndex] < arr[minIndex] ? currentIndex : minIndex)
                 .orElse(startIdx);
     }
-
-    public static void main(String[] args) {
-        short[] arr = new short[]{6, 7, 2, 8, 1, 5};
-        var list = List.of(4, 8, 2, 1, 5, 7, 9);
-        System.out.println(Arrays.toString(arr));
-        selectionSort(arr);
-        System.out.println(Arrays.toString(arr));
-    }
 }

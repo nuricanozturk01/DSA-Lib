@@ -1,3 +1,11 @@
+/*----------------------------------------------------------------
+	FILE		: InsertionSort.java
+	AUTHOR		: Nuri Can OZTURK
+	LAST UPDATE	: 17.10.2023
+	InsertionSort class is a sorting algorithm that time complexity is O(n^2)
+	Copyleft (c) DSA-Lib
+	All Rights Free
+----------------------------------------------------------------*/
 package nuricanozturk.dev.util.algorithms.sort;
 
 import java.util.function.Function;

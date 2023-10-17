@@ -8,7 +8,6 @@
 ----------------------------------------------------------------*/
 package nuricanozturk.dev.util.datastructures.linear.linkedlist;
 
-import nuricanozturk.dev.util.collection.DataStructureCollections;
 import nuricanozturk.dev.util.datastructures.linear.interfaces.ILinkedList;
 
 import java.util.Collection;

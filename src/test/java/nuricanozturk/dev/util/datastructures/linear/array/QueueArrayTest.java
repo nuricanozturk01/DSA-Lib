@@ -8,13 +8,12 @@
  */
 package nuricanozturk.dev.util.datastructures.linear.array;
 
+import nuricanozturk.dev.util.collection.NCollection;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
-
-import static nuricanozturk.dev.util.collection.DataStructureCollections.createEmptyQueueArray;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class QueueArrayTest {
@@ -23,7 +22,7 @@ public class QueueArrayTest {
 
     @BeforeEach
     public void setup() {
-        m_queue = createEmptyQueueArray();
+        m_queue = NCollection.createEmptyQueueArray();
         Arrays.stream(stringArr).forEach(m_queue::enqueue);
     }
 
