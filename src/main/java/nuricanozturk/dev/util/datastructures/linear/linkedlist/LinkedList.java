@@ -8,6 +8,7 @@
 ----------------------------------------------------------------*/
 package nuricanozturk.dev.util.datastructures.linear.linkedlist;
 
+import nuricanozturk.dev.util.collection.NCollection;
 import nuricanozturk.dev.util.datastructures.linear.interfaces.ILinkedList;
 
 import java.util.Collection;
@@ -34,7 +35,7 @@ public class LinkedList<T> implements ILinkedList<T>
 
     public static void main(String[] args)
     {
-        var ll = DataStructureCollections.<String>createEmptyLinkedList();
+        var ll = NCollection.<String>createEmptyLinkedList();
         ll.insertLast("ali");
         ll.insertLast("veli");
         ll.insertLast("can");

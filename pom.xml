@@ -7,49 +7,15 @@
     <groupId>nuricanozturk.dev</groupId>
     <artifactId>data-structures-and-algorithms</artifactId>
     <version>1.0.0</version>
+    <description>In Future, I will write again better. Now, I need it.</description>
 
-    <developers>
-        <developer>
-            <id>1</id>
-            <name>Nuri Can OZTURK</name>
-            <roles>
-                <role>
-                    Software Developer
-                </role>
-            </roles>
-        </developer>
-
-        <developer>
-            <id>2</id>
-            <name>Dogan ARIK</name>
-            <roles>
-                <role>
-                    Software Developer
-                </role>
-            </roles>
-        </developer>
-
-
-        <developer>
-            <id>3</id>
-            <name>Ahmet KOÇ</name>
-            <roles>
-                <role>
-                    Software Developer
-                </role>
-            </roles>
-        </developer>
-    </developers>
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/junit/junit -->
-        <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
             <version>5.9.3</version>
             <scope>test</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/junit/junit -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
